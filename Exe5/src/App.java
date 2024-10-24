@@ -5,6 +5,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int n1 = 1;
         int n2 = 1;
+        int t = 0;
         System.out.print("Digite o 1° número: ");
         try {
             n1 = sc.nextInt();
@@ -22,11 +23,17 @@ public class App {
             if (n2 < 0) {
                 n2 = -n2;
             }
+            if (n2 == 0) {
+                n2 = n1;
+                t = 0;
+            } else {
+                t = n2;
+            }
         } catch (Exception e) {
             System.out.println("Insira apenas números inteiros.");
             System.exit(1);
         }
-        System.out.println("O máximo divisor comum entre " + n1 + " e " + n2 + " é: " + maxDiv(n1, n2));
+        System.out.println("O máximo divisor comum entre " + n1 + " e " + t + " é: " + maxDiv(n1, n2));
 
         sc.close();
 

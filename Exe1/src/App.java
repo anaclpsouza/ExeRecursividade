@@ -29,7 +29,9 @@ public class App {
                     if (f < 0) {
                         System.out.println("Digite apenas números positivos para o Fibonacci.");
                     } else {
-                        System.out.println("O " + f + "° número da sequência fibonacci é: " + fibo(f));
+                        for (int i = 0; i <= f; i++) {
+                            System.out.print(fibo(i) + " ");   
+                        }
                     }
                 } catch (Exception e) {
                     System.out.println("Insira apenas números inteiros.");
