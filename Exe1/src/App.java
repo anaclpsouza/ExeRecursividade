@@ -5,17 +5,35 @@ public class App {
         Scanner sc = new Scanner(System.in);
         System.out.println("1. Calcular Fatorial. \n2. Calcular Fibonacci.");
         String op = sc.nextLine();
+        int n = 0;
+        int f = 0;
 
         switch (op) {
             case "1":
                 System.out.print("Digite um número: ");
-                int n = sc.nextInt();
-                System.out.println("O fatorial de " + n + " é: " + fatorial(n));
+                try {
+                    n = sc.nextInt();
+                    if (n < 0) {
+                        System.out.println("Insira apenas números naturais.");
+                        System.exit(1);
+                    }
+                    System.out.println("O fatorial de " + n + " é: " + fatorial(n));
+                } catch (Exception e) {
+                    System.out.println("Insira apenas números inteiros.");
+                }
                 break;
             case "2":
                 System.out.print("Digite um número: ");
-                int f = sc.nextInt();
-                System.out.println("O " + f + "° número da sequência fibonacci é: " + fibo(f));
+                try {
+                    f = sc.nextInt();
+                    if (f < 0) {
+                        System.out.println("Digite apenas números positivos para o Fibonacci.");
+                    } else {
+                        System.out.println("O " + f + "° número da sequência fibonacci é: " + fibo(f));
+                    }
+                } catch (Exception e) {
+                    System.out.println("Insira apenas números inteiros.");
+                }
                 break;
             default:
                 System.out.println("Opção inválida.");
@@ -25,7 +43,7 @@ public class App {
         sc.close();
     }
 
-    public static long fatorial(int n) {
+    public static long fatorial(int n) throws Exception{
         if ((n == 1) || (n == 0)) {
             return 1;
         } else {
@@ -37,10 +55,8 @@ public class App {
         }
     }
 
-    public static long fibo(int f) {
-        if (f < 0) {
-            System.out.println("Insira apenas números positivos.");
-        } else if (f == 0) {
+    public static long fibo(int f) throws Exception {
+        if (f == 0) {
             return 0;
         } else if (f == 1) {
             return 1;
